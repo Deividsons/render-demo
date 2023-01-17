@@ -12,7 +12,7 @@ const myApp = {
   methods: {
     async getImmos() {
       try {
-        const { data } = await axios.get('http://localhost:3000/immos');
+        const { data } = await axios.get('/immos');
         this.immobilien = data;
       } catch (error) {
         console.log(error);
@@ -26,7 +26,7 @@ const myApp = {
       return p;
     },
     async delImmo(id) {
-      await axios.delete(`http://localhost:3000/immos/${id}`);
+      await axios.delete(`/immos/${id}`);
       this.getImmos();
     },
     copyCheck(id) {
@@ -43,7 +43,7 @@ const myApp = {
       // immo.price = this.showInEuros(Number(this.input));
 
       // mit Patch
-      await axios.patch(`http://localhost:3000/immos/${this.id}`, {
+      await axios.patch(`/immos/${this.id}`, {
         price: Number(this.input),
       });
 
